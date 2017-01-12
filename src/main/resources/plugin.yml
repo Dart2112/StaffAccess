@@ -1,0 +1,8 @@
+name: StaffAccess
+version: ${project.version}
+main: net.lapismc.staffaccess.StaffAccess
+authors: [Dart2112]
+description: Allows the server to be locked to players with a permission
+commands:
+  staffaccess:
+    description: enabled and disabled staff access

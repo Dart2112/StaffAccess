@@ -1,0 +1,11 @@
+#Use this if you want to manually enable staff access
+Enabled: false
+#This will be sent to staff when they join while staff access is enabled
+Staffjoin: '&6Server is currently in staff only mode!'
+#This will be sent to players to try to join while staff access is enabled
+NonStaffJoin: '&cServer is currently in staff only mode, Please try again later!'
+#A player will need to have one of these permissions to join while staff access is enabled
+#You can add your own permissions if you want
+Permissions:
+  #Don't remove this permission!!!
+  - staffaccess.staff
