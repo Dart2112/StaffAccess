@@ -17,6 +17,7 @@
 package net.lapismc.staffaccess;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -28,10 +29,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public final class StaffAccess extends JavaPlugin implements Listener {
 
     private ArrayList<Permission> staffPerms = new ArrayList<>();
+    private Logger logger = getLogger();
 
     @Override
     public void onEnable() {
@@ -47,14 +50,14 @@ public final class StaffAccess extends JavaPlugin implements Listener {
             }
             staffPerms.add(p);
         }
-        Bukkit.getLogger().info("Permissions Loaded!");
-        Bukkit.getLogger().info("Staff Access v." + this.getDescription().getVersion());
+        logger.info("Permissions Loaded!");
+        logger.info("Staff Access v." + this.getDescription().getVersion());
     }
 
     @Override
     public void onDisable() {
         staffPerms.clear();
-        Bukkit.getLogger().info("Disabled!");
+        logger.info("Disabled!");
     }
 
     @Override
@@ -98,9 +101,9 @@ public final class StaffAccess extends JavaPlugin implements Listener {
                 }
             }
             if (allowed) {
-                e.getPlayer().sendMessage(getConfig().getString("StaffJoin"));
+                e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString("StaffJoin")));
             } else {
-                e.getPlayer().kickPlayer("NonStaffJoin");
+                e.getPlayer().kickPlayer(ChatColor.translateAlternateColorCodes('&', getConfig().getString("NonStaffJoin")));
             }
         }
     }
